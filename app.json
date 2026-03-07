@@ -1,0 +1,26 @@
+{
+  "id": "8146737d-1e3b-47a4-af75-ee11ebd16b3c",
+  "name": "CustomerSalesDashboard",
+  "publisher": "Default Publisher",
+  "version": "1.0.0.0",
+  "brief": "",
+  "description": "",
+  "platform": "27.0.0.0",
+  "application": "27.0.0.0",
+  "runtime": "13.0",
+  "target": "OnPrem",
+  "idRanges": [
+    {
+      "from": 50100,
+      "to": 50149
+    }
+  ],
+  "resourceExposurePolicy": {
+    "allowDebugging": true,
+    "allowDownloadingSource": true,
+    "includeSourceInSymbolFile": true
+  },
+  "features": [
+    "NoImplicitWith"
+  ]
+}
