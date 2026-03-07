@@ -1,25 +1,25 @@
-# AL packages
+# AL Packages
 .alpackages/
-
-# VS Code cache
-.vscode/.alcache/
-
-# RAD files
-.vscode/rad.json
 
 # Build output
 *.app
+*.g.xlf
 
-# Temporary files
-*.tmp
-*.log
+# VS Code settings
+.vscode/
 
-# Windows files
+# Windows system files
 Thumbs.db
 Desktop.ini
 
-.vscode/
-.alpackages/
+# Logs
+*.log
 
-.vscode/*
-!.vscode/launch.json
+# Temporary files
+*.tmp
+
+# Node modules (if used)
+node_modules/
+
+# OS generated files
+.DS_Store
