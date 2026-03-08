@@ -1,0 +1,22 @@
+pageextension 50100 MyRoleCenterExt extends "Business Manager Role Center"
+{
+    actions
+    {
+        addlast(Sections)
+        {
+            group(MyTools)
+            {
+                Caption = 'My Tools';
+
+                action(CustomerSalesDashboard)
+                {
+                    ApplicationArea = All;
+                    Caption = 'Customer Sales Dashboard';
+                    Image = Chart;
+
+                    RunObject = page "Customer Sales Dashboard";
+                }
+            }
+        }
+    }
+}
