@@ -7,50 +7,56 @@ page 50100 "Customer Sales Dashboard"
 
     layout
     {
-        area(Content)
+        area(content)
         {
-            group(SalesSummary)
+            group("Sales Summary")
             {
-                Caption = 'Sales Summary';
-
-                field("Customer No."; Rec."No.")
+                field("No."; Rec."No.")
                 {
                     ApplicationArea = All;
                 }
 
-                field("Customer Name"; Rec.Name)
+                field(Name; Rec.Name)
                 {
                     ApplicationArea = All;
                 }
 
-                field(TotalSales; TotalSales)
+                field(TotalSalesAmount; TotalSalesAmount)
                 {
-                    ApplicationArea = All;
                     Caption = 'Total Sales Amount';
+                    ApplicationArea = All;
                 }
 
                 field(TotalQuantity; TotalQuantity)
                 {
-                    ApplicationArea = All;
                     Caption = 'Total Quantity Sold';
+                    ApplicationArea = All;
                 }
             }
         }
     }
 
     var
-        SalesLine: Record "Sales Line";
-        TotalSales: Decimal;
+        SalesLine: Record "Sales Invoice Line";
+        TotalSalesAmount: Decimal;
         TotalQuantity: Decimal;
 
     trigger OnAfterGetRecord()
     begin
+        CalculateSales();
+    end;
+
+    procedure CalculateSales()
+    begin
+        Clear(TotalSalesAmount);
+        Clear(TotalQuantity);
+
         SalesLine.Reset();
         SalesLine.SetRange("Sell-to Customer No.", Rec."No.");
 
         if SalesLine.FindSet() then
             repeat
-                TotalSales += SalesLine.Amount;
+                TotalSalesAmount += SalesLine."Line Amount";
                 TotalQuantity += SalesLine.Quantity;
             until SalesLine.Next() = 0;
     end;
